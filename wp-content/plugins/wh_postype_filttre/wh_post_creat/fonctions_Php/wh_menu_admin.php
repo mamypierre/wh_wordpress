@@ -1,9 +1,5 @@
 <?php include plugin_dir_path(__FILE__) . 'wh_register_post.php'; 
-      // delete_option('wh_post_type')    
-      
-    
-      
-        ?> 
+      // delete_option('wh_post_type') ?> 
 
 
 <h1> <?= get_admin_page_title() ?></h1>
@@ -100,5 +96,5 @@ if (!empty($_POST['wh_nom_meta']) || !empty($_POST['wh_nom_taxo'])) {
 
 
 
-print_r(get_option('wh_post_type'));
+//print_r(get_option('wh_post_type'));
 
