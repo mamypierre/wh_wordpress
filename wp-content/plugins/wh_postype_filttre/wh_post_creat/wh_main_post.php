@@ -7,7 +7,7 @@ Version: 0.1
 Author: Dona
 */
 
-include_once plugin_dir_path( __FILE__ ).'fonctions_Php/parametre_admin.php';
+include_once plugin_dir_path( __FILE__ ).'wh_modele/parametre_admin.php';
 
 class Wh_main_post {
     
