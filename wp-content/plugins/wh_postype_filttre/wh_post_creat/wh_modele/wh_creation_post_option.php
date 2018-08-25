@@ -12,17 +12,17 @@ function wh_post_creats() {
 
         foreach ($posts as $postType) {
             
-            print_r($postType);
+           // print_r($postType);
             
             //creation de posteType
-            wh_post_creat($postType->getNom_post(), $postType->getNoms_post(), $postType->getNom_menue(), $postType->getDescription());
+            wh_post_creat($postType->getNom_post(), $postType->getNoms_post(), $postType->getNom_menue(), $postType->getDescription(), $postType->getNom_unique());
 
            
         }
     }
 }
 
-function wh_post_creat($nom_post, $noms_post, $nom_menu, $description_post) {
+function wh_post_creat($nom_post, $noms_post, $nom_menu, $description_post, $nom_unique) {
 
     // On rentre les différentes dénominations de notre custom post type qui seront affichées dans l'administration
     $labels = array(
@@ -62,7 +62,7 @@ function wh_post_creat($nom_post, $noms_post, $nom_menu, $description_post) {
     );
 
     // On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
-    $register_name = explode(" ", $noms_post) ;
+    $register_name = explode(" ", $nom_unique) ;
     
     register_post_type($register_name[0], $args);
 }
@@ -87,7 +87,7 @@ function wh_taxo_creats() {
 
                 foreach ($Taxonomies as $Taxonomie) {
 
-                    $nomPosts = $postType->getNoms_post();
+                    $nomPosts = $postType->getNom_unique();
 
                     wh_add_taxonomies($Taxonomie, $nomPosts);
                 }
@@ -131,7 +131,7 @@ function wh_add_taxonomies($Taxonomie, $nomPosts) {
     
     register_taxonomy($Taxonomie->getWh_noms_taxo(), $register_name[0], $args);
 
-     print_r($args);
+     //print_r($args);
     // wp_die($nomPosts);
 }
 

@@ -6,7 +6,7 @@ if (get_option(nom_option_post())) {
     
     foreach (get_option(nom_option_post())->getPosteTyps() as $postetype) {
         
-        echo $postetype->getNoms_post() . '<br>';
+        include plugin_dir_path(__FILE__) . '../view/lien.php';
         
     }
     
