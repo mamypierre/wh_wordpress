@@ -19,6 +19,8 @@ class Wh_parametre {
         add_submenu_page('wh_custom_post', 'creation post', 'creation post', 'manage_options', 'wh_custom_post', array($this, 'wh_view_menu'));
         
         add_submenu_page('wh_custom_post', 'taxonomies', 'ajout taxonomie', 'manage_options', 'wh_taxonomie', array($this, 'wh_view_taxo'));
+        
+        // TODO: Sub menu edit taxonomy
     }
 
     public function wh_view_menu() {
