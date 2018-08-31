@@ -6,12 +6,23 @@ class Taxonomie {
     private $wh_noms_taxo;
     private $wh_nom_taxo_recherche;
     private $wh_nom_taxo_menu;
+    private $id_taxo;
+    private $id_post;
 
-    function __construct($wh_nom_taxo, $wh_noms_taxo, $wh_nom_taxo_recherche, $wh_nom_taxo_menu) {
+    function __construct($wh_nom_taxo, $wh_noms_taxo, $wh_nom_taxo_recherche, $wh_nom_taxo_menu, $id_taxo ,$id_post) {
         $this->wh_nom_taxo = $wh_nom_taxo;
         $this->wh_noms_taxo = $wh_noms_taxo;
         $this->wh_nom_taxo_recherche = $wh_nom_taxo_recherche;
         $this->wh_nom_taxo_menu = $wh_nom_taxo_menu;
+        $this->id_taxo = $id_taxo;
+        $this->id_post = $id_post ;
+    }
+    function getId_post() {
+        return $this->id_post;
+    }
+
+        function getId_taxo() {
+        return $this->id_taxo;
     }
 
     function getWh_nom_taxo() {

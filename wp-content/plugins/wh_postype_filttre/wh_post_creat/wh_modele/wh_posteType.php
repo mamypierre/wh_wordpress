@@ -11,17 +11,18 @@ class PosteType {
     private $nom_menu;
     private $description_post;
     private $nom_unique;
+    private $id;
 
-    function __construct($noms_post, $nom_post, $nom_menue, $description, $nom_unique) {
+    function __construct($noms_post, $nom_post, $nom_menue, $description, $id) {
         $this->noms_post = $noms_post;
         $this->nom_post = $nom_post;
         $this->nom_menu = $nom_menue;
         $this->description_post = $description;
-        $this->nom_unique = $nom_unique ;
+        $this->id = $id;
     }
 
-    function getNom_option_post() {
-        return $this->nom_option_post;
+    function getId() {
+        return $this->id;
     }
 
     function getNom_unique() {

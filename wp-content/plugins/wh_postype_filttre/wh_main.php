@@ -13,7 +13,8 @@ include plugin_dir_path(__FILE__) . 'wh_post_creat/wh_modele/wh_taxonomie.php';
 
 include_once plugin_dir_path(__FILE__) . 'wh_post_creat/wh_modele/wh_creation_post_option.php';
 include_once plugin_dir_path( __FILE__ ).'wh_post_creat/configuration.php';
-include_once plugin_dir_path( __FILE__ ).'wh_post_creat/Wh_main_post.php';
+include_once plugin_dir_path( __FILE__ ).'wh_post_creat/wh_main_post.php';
+include_once plugin_dir_path( __FILE__ ).'wh_filtre/wh_main_filtre.php';
 
 class Wh_main {
           

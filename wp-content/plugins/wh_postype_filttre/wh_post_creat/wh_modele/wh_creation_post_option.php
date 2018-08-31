@@ -5,6 +5,8 @@ add_action('init', 'wh_post_creats', 0);
 function wh_post_creats() {
 
     $posts = get_option(nom_option_post());
+    
+     //print_r($posts);
 
     if ($posts) {
 
@@ -12,17 +14,17 @@ function wh_post_creats() {
 
         foreach ($posts as $postType) {
             
-           // print_r($postType);
+          //  print_r($postType);
             
             //creation de posteType
-            wh_post_creat($postType->getNom_post(), $postType->getNoms_post(), $postType->getNom_menue(), $postType->getDescription(), $postType->getNom_unique());
+            wh_post_creat($postType->getNom_post(), $postType->getNoms_post(), $postType->getNom_menue(), $postType->getDescription(), $postType->getId());
 
            
         }
     }
 }
 
-function wh_post_creat($nom_post, $noms_post, $nom_menu, $description_post, $nom_unique) {
+function wh_post_creat($nom_post, $noms_post, $nom_menu, $description_post, $id) {
 
     // On rentre les différentes dénominations de notre custom post type qui seront affichées dans l'administration
     $labels = array(
@@ -62,41 +64,36 @@ function wh_post_creat($nom_post, $noms_post, $nom_menu, $description_post, $nom
     );
 
     // On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
-    $register_name = explode(" ", $nom_unique) ;
     
-    register_post_type($register_name[0], $args);
+    register_post_type($id, $args);
 }
 
 add_action('init', 'wh_taxo_creats', 0);
 
 function wh_taxo_creats() {
 
-    $posts = get_option(nom_option_post());
+    $posts = getPostypes();
 
     if ($posts) {
 
-        $posts = $posts->getPosteTyps();
-
         foreach ($posts as $postType) {
 
-
+            $id_post = $postType->getId() ;
             // creation de taxonomie lier aux poste type
-            if (get_option($postType->getNom_post())) {
+            if (get_option($id_post)) {
 
-                $Taxonomies = get_option($postType->getNom_post())->getTabTaxonomie();
+                $Taxonomies = get_option($postType->getId())->getTabTaxonomie();
 
                 foreach ($Taxonomies as $Taxonomie) {
 
-                    $nomPosts = $postType->getNom_unique();
-
-                    wh_add_taxonomies($Taxonomie, $nomPosts);
+                    wh_add_taxonomies($Taxonomie, $id_post);
                 }
             }
         }
     }
 }
 
-function wh_add_taxonomies($Taxonomie, $nomPosts) {
+function wh_add_taxonomies($Taxonomie, $id_post) {
 
 
     
@@ -124,12 +121,11 @@ function wh_add_taxonomies($Taxonomie, $nomPosts) {
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => $Taxonomie->getWh_nom_taxo() . '-' . $nomPosts),
+        'rewrite' => array('slug' => $Taxonomie->getWh_nom_taxo() . '-' . $id_post),
     );
 
-    $register_name = explode(" ", $nomPosts) ;
     
-    register_taxonomy($Taxonomie->getWh_noms_taxo(), $register_name[0], $args);
+    register_taxonomy($Taxonomie->getId_taxo(), $id_post, $args);
 
      //print_r($args);
     // wp_die($nomPosts);

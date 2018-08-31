@@ -5,7 +5,7 @@
             <select id="postytes_choise"class="postytes_choise" name="postes_choix">
                 <?php foreach ($postetypes as $postetype) { ?>
 
-                    <option> <?= $postetype->getNom_post() ?> </option>
+                    <option> <?= $postetype->getId(), ' '.$postetype->getNom_post() ?> </option>
 
                 <?php } ?>
             </select>

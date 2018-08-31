@@ -9,6 +9,7 @@ class Wh_parametre {
     function __construct() { 
         //ajout des menu de creation de posts
         add_action('admin_menu', array($this, 'wh_add_admin_menu'));
+        
     }
 
 // creation de page menu
