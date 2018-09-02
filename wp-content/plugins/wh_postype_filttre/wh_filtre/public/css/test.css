@@ -1,0 +1,16 @@
+.columns{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between ;
+    
+    width: 50% ;
+}
+
+.wh_container{
+    display: flex;
+}
+
+.wh_map{
+    background-color: bisque ;
+    width: 50% ;
+}

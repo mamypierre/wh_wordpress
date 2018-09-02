@@ -22,7 +22,7 @@ class Wh_main {
    
         //intitiation de plugins creation de post
         new Wh_main_post();
-        
+        new Main_filtre();
     }
     
 }

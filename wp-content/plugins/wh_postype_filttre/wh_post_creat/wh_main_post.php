@@ -1,7 +1,7 @@
 <?php
 /*
 
-Plugin Name: creation dse post type
+Name: creation dse post type
 Description: Un plugin de creation de poste type 
 Version: 0.1
 Author: Dona
