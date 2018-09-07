@@ -5,20 +5,12 @@ add_action( 'init', 'wh_post_creats', 0 );
 function wh_post_creats() {
 
   $posts = get_option( POST_OPTION );
-
-  //print_r($posts);
-
   if ( $posts ) {
-
     $posts = $posts->getPosteTyps();
-
     foreach ( $posts as $postType ) {
-
       //  print_r($postType);
-
       //creation de posteType
       wh_post_creat( $postType->getNom_post(), $postType->getNoms_post(), $postType->getNom_menue(), $postType->getDescription(), $postType->getId() );
-
 
     }
   }
@@ -73,7 +65,6 @@ function wh_post_creat( $nom_post, $noms_post, $nom_menu, $description_post, $id
   );
 
   // On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
-
   register_post_type( $id, $args );
 }
 
