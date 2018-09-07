@@ -3,11 +3,11 @@
     <div class="postytes_choise_bloc">
       <label for="postytes_choise"> choix de custom poste </label>
       <select id="postytes_choise" class="postytes_choise" name="postes_choix">
-				<?php foreach ( $postetypes as $postetype ) { ?>
+        <?php foreach ( $postetypes as $postetype ) { ?>
 
           <option> <?= $postetype->getId(), ' ' . $postetype->getNom_post() ?> </option>
 
-				<?php } ?>
+        <?php } ?>
       </select>
     </div>
     <div class="taxo_choise_bloc">
@@ -17,7 +17,7 @@
         <option> 2</option>
         <option> 3</option>
       </select>
-			<?php submit_button( 'ajouter un custom taxo' ); ?>
+      <?php submit_button( 'ajouter un custom taxo' ); ?>
     </div>
   </div>
 </form>

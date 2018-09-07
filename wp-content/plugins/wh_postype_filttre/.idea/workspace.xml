@@ -3,35 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8eb86255-9d0c-4e9d-ab06-eb89814c8dc8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../../../wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../wp-config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_filtre/controleur/wh_shorteCode.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_filtre/public/css/test.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_filtre/public/javascript/wh_maps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_filtre/public/javascript/wh_vandor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_filtre/view/page_test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_filtre/wh_main_filtre.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_main.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/configuration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/esitation.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/esitation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/esitation_delet_taxo.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/esitation_delet_taxo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/home_taxo.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/home_taxo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/lien.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/lien.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/list_taxo.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/list_taxo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/wh_bouton_creation.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/wh_bouton_creation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/wh_form_choix_taxo.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/wh_form_choix_taxo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/wh_form_creation_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/wh_form_creation_post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/wh_form_taxo.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/wh_form_taxo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/view/wh_home_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/view/wh_home_post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_main_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_main_post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/parametre_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/parametre_admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/supresion_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/supresion_post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/supression_taxo.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/supression_taxo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_creation_post_option.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_creation_post_option.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminTaxo.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminTaxo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_posteType.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_posteType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_posteTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_posteTypes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_register_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_register_post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_taxonomie.php" beforeDir="false" afterPath="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_taxonomie.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,10 +15,14 @@
     <leaf>
       <file leaf-file-name="wh_filtre.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wh_filtre/wh_filtre.php">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="wh_main.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wh_main.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wh_main.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
@@ -59,13 +34,13 @@
       <file leaf-file-name="wh_menuAdminPost.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminPost.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+            <state relative-caret-position="-128">
+              <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="configuration.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="configuration.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wh_post_creat/configuration.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
@@ -97,9 +72,10 @@
         <option value="$PROJECT_DIR$/wh_main.php" />
         <option value="$PROJECT_DIR$/wh_post_creat/configuration.php" />
         <option value="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_register_post.php" />
-        <option value="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminPost.php" />
         <option value="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_creation_post_option.php" />
         <option value="$PROJECT_DIR$/wh_post_creat/wh_modele/supresion_post.php" />
+        <option value="$PROJECT_DIR$/wh_filtre/wh_filtre.php" />
+        <option value="$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminPost.php" />
       </list>
     </option>
   </component>
@@ -137,18 +113,6 @@
               <item name="wh_postype_filttre" type="b2602c69:ProjectViewProjectNode" />
               <item name="wh_postype_filttre" type="462c0819:PsiDirectoryNode" />
               <item name="wh_post_creat" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wh_postype_filttre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wh_postype_filttre" type="462c0819:PsiDirectoryNode" />
-              <item name="wh_post_creat" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wh_postype_filttre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wh_postype_filttre" type="462c0819:PsiDirectoryNode" />
-              <item name="wh_post_creat" type="462c0819:PsiDirectoryNode" />
-              <item name="wh_modele" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -249,12 +213,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536308005335</updated>
-      <workItem from="1536308006834" duration="509000" />
+      <workItem from="1536308006834" duration="942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="509000" />
+    <option name="totallyTimeSpent" value="942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
@@ -297,9 +261,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wh_filtre/wh_filtre.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/wh_post_creat/wh_modele/wh_taxonomie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1269" />
@@ -330,13 +291,6 @@
     <entry file="file://$PROJECT_DIR$/wh_post_creat/wh_modele/wh_posteType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wh_main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wh_post_creat/wh_modele/wh_creation_post_option.php">
@@ -376,17 +330,37 @@
     <entry file="file://$PROJECT_DIR$/wh_post_creat/view/home_taxo.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminPost.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wh_post_creat/configuration.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="21" column="30" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wh_post_creat/view/esitation_delet_taxo.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wh_post_creat/view/wh_form_choix_taxo.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wh_filtre/wh_filtre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wh_post_creat/wh_modele/wh_menuAdminPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-128">
+          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wh_main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

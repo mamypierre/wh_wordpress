@@ -5,10 +5,10 @@ $taxos = get_option( $getId_post )->getTabTaxonomie();
 $key_taxo = false;
 //recuperation du keys
 foreach ( $taxos as $key => $taxo ) {
-	if ( $taxo->getId_taxo() == $getId_taxo ) {
+  if ( $taxo->getId_taxo() == $getId_taxo ) {
 
-		$key_taxo = $key;
-	}
+    $key_taxo = $key;
+  }
 }
 
 unset( $taxos[ $key_taxo ] );
@@ -18,7 +18,7 @@ $taxoObjet = new Taxonomies();
 
 foreach ( $taxos as $value ) {
 
-	$taxoObjet->setTabTaxonomie( $value );
+  $taxoObjet->setTabTaxonomie( $value );
 }
 
 //print_r($taxoObjet);

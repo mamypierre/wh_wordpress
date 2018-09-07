@@ -19,12 +19,12 @@ include_once plugin_dir_path( __FILE__ ) . 'wh_filtre/wh_filtre.php';
 
 class Wh_main {
 
-	function __construct() {
+  function __construct() {
 
-		//intitiation de plugins creation de post
-		new Wh_main_post();
-		new Main_filtre();
-	}
+    //intitiation de plugins creation de post
+    new Wh_main_post();
+    new Main_filtre();
+  }
 
 }
 
