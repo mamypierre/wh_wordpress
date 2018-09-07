@@ -1,85 +1,65 @@
 <?php
 
-//delete_option(nom_option_post());
+//delete_option(POST_OPTION);
 //print_r(getPostypesObjet());
 
-if (isset($_GET['action'])) {
+if ( isset( $_GET['action'] ) ) {
 
-    switch ($_GET['action']) {
-        case 'edit':
+	switch ( $_GET['action'] ) {
+		case 'edit':
+			if ( $_GET['id'] && getPostypes() ) {
+				$postTypes = getPostypes();
+				if ( isPostype( $_GET['id'], $postTypes ) ) {
+					$postType = isPostype( $_GET['id'], $postTypes );
+					include plugin_dir_path( __FILE__ ) . '../view/wh_form_creation_post.php';
+				}
+			}
+			break;
 
-            if ($_GET['id'] && getPostypes()) {
+		case 'pre_delete':
+			if ( $_GET['id'] ) {
+				$id_post_delete = $_GET['id'];
+				include plugin_dir_path( __FILE__ ) . '../view/esitation.php';
+			}
+			break;
 
-                $postTypes = getPostypes();
+		case 'delete':
+			if ( $_GET['id_post_comf'] ) {
 
-                if (isPostype($_GET['id'], $postTypes)) {
+				$id_post_comf = $_GET['id_post_comf'];
+				include plugin_dir_path( __FILE__ ) . 'supresion_post.php';
+				echo 'bien suprimer';
+			}
+			include plugin_dir_path( __FILE__ ) . '../view/wh_home_post.php';
+			break;
 
-                    $postType = isPostype($_GET['id'], $postTypes);
-
-                    include plugin_dir_path(__FILE__) . '../view/wh_form_creation_post.php';
-                }
-            }
-
-            break;
-
-        case 'pre_delete':
-
-            if ($_GET['id']) {
-                $id_post_delete = $_GET['id'];
-                include plugin_dir_path(__FILE__) . '../view/esitation.php';
-            }
-
-            break;
-
-        case 'delete':
-            if ($_GET['id_post_comf']) {
-
-                $id_post_comf = $_GET['id_post_comf'];
-
-                include plugin_dir_path(__FILE__) . 'supresion_post.php';
-
-                echo 'bien suprimer';
-            }
-
-            include plugin_dir_path(__FILE__) . '../view/wh_home_post.php';
-            break;
-
-        default:
-            echo 'Désolé, vous n’avez pas l’autorisation d’accéder à cette page';
-
-            include plugin_dir_path(__FILE__) . '../view/wh_home_post.php';
-
-            break;
-    }
+		default:
+			echo 'Désolé, vous n’avez pas l’autorisation d’accéder à cette page';
+			include plugin_dir_path( __FILE__ ) . '../view/wh_home_post.php';
+			break;
+	}
 } else {
 
-    if (isset($_POST['creation'])) {
+	if ( isset( $_POST['creation'] ) ) {
+		switch ( $_POST['creation'] ) {
+			case 'post':
+				include plugin_dir_path( __FILE__ ) . 'wh_register_post.php';
+				include plugin_dir_path( __FILE__ ) . '../view/wh_bouton_creation.php';
+				break;
 
-        switch ($_POST['creation']) {
+			case 'button':
+				include plugin_dir_path( __FILE__ ) . '../view/wh_form_creation_post.php';
+				break;
+		}
+	} else {
 
-            case 'post':
-
-                include plugin_dir_path(__FILE__) . 'wh_register_post.php';
-                include plugin_dir_path(__FILE__) . '../view/wh_bouton_creation.php';
-                break;
-
-            case 'button':
-
-                include plugin_dir_path(__FILE__) . '../view/wh_form_creation_post.php';
-                break;
-        }
-    } else {
-
-        if (getPostypes()) {
-
-            foreach (getPostypes() as $postetype) {
-
-                include plugin_dir_path(__FILE__) . '../view/lien.php';
-            }
-        }
-
-        include plugin_dir_path(__FILE__) . '../view/wh_bouton_creation.php';
-    }
+		if ( getPostypes() ) {
+			foreach ( getPostypes() as $postetype ) {
+				include plugin_dir_path( __FILE__ ) . '../view/lien.php';
+			}
+		}
+		include plugin_dir_path( __FILE__ ) . '../view/wh_bouton_creation.php';
+	}
 }
 
 
