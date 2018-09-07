@@ -13,7 +13,6 @@ function getPostypes() {
   if ( get_option( POST_OPTION ) ) {
     return get_option( POST_OPTION )->getPosteTyps();
   }
-
   return false;
 }
 

@@ -3,8 +3,7 @@
     <?php } else { ?>
         <form method="post" action="">
         <?php } ?>
-        <div class="wh_creat_taxo"> 
-
+        <div class="wh_creat_taxo">
             <?php for ($i = 0; $i < $nunbre_taxo; $i++) { ?>
 
                 <?php
@@ -18,7 +17,7 @@
             <?php } ?>
 
             <input type="hidden" name="ajout_taxo" value="<?= $nunbre_taxo ?>"/>
-            <input type="hidden" name="id_post" value="<?= $id ?>"/>
+            <input type="hidden" name="id_post" value="<?= $post_type ?>"/>
             <?php if (isset($taxo)) { ?> 
             <input type="hidden" name="id_post_taxo" value="<?= $taxo->getId_taxo() ?>"/>
             <input type="hidden" name="id_taxo" value="<?= $taxo->getId_post() ?>"/>
@@ -39,19 +38,19 @@
             <div class="wh_label_nom_taxo" > 
                 <label for="nom_taxo" >nom du taxonomie :</label> </div>
             <div class="wh_nom_taxo" > 
-                <input required="" id="nom_taxo" type="text" name="wh_nom_taxo<?= $i; ?>" <?php if ($taxo) { ?> value="<?= $taxo->getWh_nom_taxo() ?>"  <?php } ?> placeholder="nom aux singuliers" /> </div>
+                <input required="" id="nom_taxo" type="text" name="wh_nom_taxo[<?= $i; ?>]" <?php if ($taxo) { ?> value="<?= $taxo->getWh_nom_taxo() ?>"  <?php } ?> placeholder="nom aux singuliers" /> </div>
             <div class="wh_label_noms_taxo" > 
                 <label for="noms_taxo" >noms du taxonomie :</label> </div>
             <div class="wh_noms_taxo" > 
-                <input required="" id="noms_taxo" type="text" name="wh_noms_taxo<?= $i; ?>" <?php if ($taxo) { ?> value="<?= $taxo->getWh_noms_taxo() ?>"  <?php } ?> placeholder="nom aux pluriel"/> </div>
+                <input required="" id="noms_taxo" type="text" name="wh_noms_taxo[<?= $i; ?>]" <?php if ($taxo) { ?> value="<?= $taxo->getWh_noms_taxo() ?>"  <?php } ?> placeholder="nom aux pluriel"/> </div>
             <div class="wh_label_nom_recherche" > 
                 <label for="nom_taxo_research" >nom du recherche :</label> </div>
             <div class="wh_nom_taxo_recherche" > 
-                <input  required="" id="nom_taxo_recherche" type="text" name="wh_nom_taxo_recherche<?= $i; ?>" <?php if ($taxo) { ?> value="<?= $taxo->getWh_nom_taxo_recherche() ?>"  <?php } ?>/> </div>
+                <input  required="" id="nom_taxo_recherche" type="text" name="wh_nom_taxo_recherche[<?= $i; ?>]" <?php if ($taxo) { ?> value="<?= $taxo->getWh_nom_taxo_recherche() ?>"  <?php } ?>/> </div>
             <div class="wh_label_nom_recherche" > 
                 <label for="nom_taxo_research" >nom du menu :</label> </div>
             <div class="wh_nom_taxo_recherche" > 
-                <input  required="" id="nom_taxo_recherche" type="text" name="wh_nom_taxo_menu<?= $i; ?>" <?php if ($taxo) { ?> value="<?= $taxo->getWh_nom_taxo_menu() ?>"  <?php } ?>/> </div>
+                <input  required="" id="nom_taxo_recherche" type="text" name="wh_nom_taxo_menu[<?= $i; ?>]" <?php if ($taxo) { ?> value="<?= $taxo->getWh_nom_taxo_menu() ?>"  <?php } ?>/> </div>
         </div>
 
         <?php

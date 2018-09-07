@@ -65,8 +65,8 @@ function wh_post_creat( $nom_post, $noms_post, $nom_menu, $description_post, $id
 }
 
 add_action( 'init', 'wh_taxo_creats', 0 );
-
 function wh_taxo_creats() {
+  // return array of posteType (object)
   $posts = getPostypes();
   if ( $posts ) {
     foreach ( $posts as $postType ) {
@@ -83,6 +83,7 @@ function wh_taxo_creats() {
 }
 
 function wh_add_taxonomies( $Taxonomie, $id_post ) {
+  if ( ! $Taxonomie instanceof Taxonomie) return;
   $labels = array(
     'name'                  => _x( $Taxonomie->getWh_noms_taxo(), 'taxonomy general name' ),
     'singular_name'         => _x( $Taxonomie->getWh_nom_taxo(), 'taxonomy singular name' ),
