@@ -3,15 +3,11 @@
 add_action( 'init', 'wh_post_creats', 0 );
 
 function wh_post_creats() {
-
   $posts = get_option( POST_OPTION );
   if ( $posts ) {
     $posts = $posts->getPosteTyps();
     foreach ( $posts as $postType ) {
-      //  print_r($postType);
-      //creation de posteType
       wh_post_creat( $postType->getNom_post(), $postType->getNoms_post(), $postType->getNom_menue(), $postType->getDescription(), $postType->getId() );
-
     }
   }
 }
@@ -27,7 +23,7 @@ function wh_post_creat( $nom_post, $noms_post, $nom_menu, $description_post, $id
     // Le libellé affiché dans le menu
     'menu_name'          => __( $nom_menu ),
     // Les différents libellés de l'administration
-    'all_items'          => __( 'Toutes les' . $nom_post . 's' ),
+    'all_items'          => __( 'Toutes les ' . $nom_post . 's' ),
     'view_item'          => __( 'Voir les ' . $noms_post ),
     'add_new_item'       => __( 'Ajouter une nouvelle ' . $nom_post ),
     'add_new'            => __( 'Ajouter' ),
@@ -71,21 +67,14 @@ function wh_post_creat( $nom_post, $noms_post, $nom_menu, $description_post, $id
 add_action( 'init', 'wh_taxo_creats', 0 );
 
 function wh_taxo_creats() {
-
   $posts = getPostypes();
-
   if ( $posts ) {
-
     foreach ( $posts as $postType ) {
-
       $id_post = $postType->getId();
       // creation de taxonomie lier aux poste type
       if ( get_option( $id_post ) ) {
-
         $Taxonomies = get_option( $postType->getId() )->getTabTaxonomie();
-
         foreach ( $Taxonomies as $Taxonomie ) {
-
           wh_add_taxonomies( $Taxonomie, $id_post );
         }
       }
@@ -94,8 +83,6 @@ function wh_taxo_creats() {
 }
 
 function wh_add_taxonomies( $Taxonomie, $id_post ) {
-
-
   $labels = array(
     'name'                  => _x( $Taxonomie->getWh_noms_taxo(), 'taxonomy general name' ),
     'singular_name'         => _x( $Taxonomie->getWh_nom_taxo(), 'taxonomy singular name' ),
@@ -121,13 +108,5 @@ function wh_add_taxonomies( $Taxonomie, $id_post ) {
     'query_var'         => true,
     'rewrite'           => array( 'slug' => $Taxonomie->getWh_nom_taxo() . '-' . $id_post ),
   );
-
-
   register_taxonomy( $Taxonomie->getId_taxo(), $id_post, $args );
-
-  //print_r($args);
-  // wp_die($nomPosts);
 }
-
-
-//include_once plugin_dir_path(__FILE__) . 'test.php';
