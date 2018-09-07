@@ -16,8 +16,8 @@ if ( isset( $_GET['action'] ) ) {
       }
       break;
     case 'editeAdd':
-      if ( isset( $_POST['wh_nom_taxo0'] ) && isset( $_POST['wh_noms_taxo0'] ) &&
-           isset( $_POST['wh_nom_taxo_recherche0'] ) && isset( $_POST['wh_nom_taxo_menu0'] ) &&
+      if ( isset( $_POST['wh_nom_taxo'][0] ) && isset( $_POST['wh_noms_taxo'][0] ) &&
+           isset( $_POST['wh_nom_taxo_recherche'][0] ) && isset( $_POST['wh_nom_taxo_menu'][0] ) &&
            isset( $_POST['id_post_taxo'] ) && isset( $_POST['id_taxo'] ) ) {
 
         $taxosObje = get_option( $_POST['id_post_taxo'] );
