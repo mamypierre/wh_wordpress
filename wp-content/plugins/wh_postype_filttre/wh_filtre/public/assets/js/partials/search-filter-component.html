@@ -1,0 +1,32 @@
+<!---- checkbox ------>
+<div class="uk-margin" ng-show="$ctrl.taxonomie.type === 'checkbox'">
+  <h4>{{$ctrl.taxonomie.label}}</h3>
+  <div class="uk-grid-small uk-child-width-auto uk-grid" ng-init="search.query[$ctrl.taxonomie.taxonomie]['type'] = 'checkbox'">
+      <label ng-repeat="term in $ctrl.taxonomie.terms">
+        <input class="uk-checkbox" type="checkbox" 
+          ng-model="search.query[][$ctrl.taxonomie.taxonomie]['value'][term.slug]" value="{{term.term_id}}" checked>
+        {{ term.name }}
+      </label>
+  </div>
+</div>
+
+<!---- text ------>
+<div class="uk-margin" ng-show="$ctrl.taxonomie.type === 'text'">
+  <div class="uk-grid-small uk-child-width-auto uk-grid" ng-init="search.query[$ctrl.taxonomie.taxonomie]['type'] = 'text'">
+    <input class="uk-input" type="input" ng-model="search.query[][$ctrl.taxonomie.taxonomie]['value']" checked>
+  </div>
+</div>
+
+<!---- select ------>
+<!-- <div class="uk-margin" ng-show="$ctrl.taxonomie.type === 'select'">
+  <div class="uk-margin" ng-init="search.query[$index]['type'] = 'select'">
+    <h4 class="uk-form-label" ng-model="search.query[$index]['value']" for="form-stacked-select">
+      {{$ctrl.taxonomie.label}}
+    </h4>
+    <div class="uk-form-controls">
+      <select class="uk-select" id="form-stacked-select" ng-repeat="term in $ctrl.taxonomie.terms">
+        <option value="{{ term.term_id }}">{{ term.term.name }}</option>
+      </select>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,19 @@
+<style type="text/css">
+.uk-card {
+
+}
+</style>
+<div class="uk-container uk-container-large">
+  <div uk-grid>
+    <div class="uk-width-1-4">
+      <search-filter-component taxonomie="taxonomie" on-search="submitSearch(search)" ng-repeat="taxonomie in taxonomies"></search-filter-component>
+    </div>
+    <div class="uk-width-3-4">
+      <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+        <post-list-component post="post" 
+        ng-repeat="post in postsList" class="uk-card uk-card-hover uk-card-default uk-width-1-2@m">
+        </post-list>
+      </div>
+    </div>
+  </div>
+</div>

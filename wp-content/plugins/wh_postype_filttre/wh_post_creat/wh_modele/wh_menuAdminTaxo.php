@@ -33,10 +33,10 @@ if ( isset( $_GET['action'] ) ) {
 
         if ( $taxo ) {
 
-          $taxo->setWh_nom_taxo( $_POST['wh_nom_taxo0'] );
-          $taxo->setWh_nom_taxo_menu( $_POST['wh_nom_taxo_menu0'] );
-          $taxo->setWh_nom_taxo_recherche( $_POST['wh_nom_taxo_recherche0'] );
-          $taxo->setWh_noms_taxo( $_POST['wh_noms_taxo0'] );
+          $taxo->setWh_nom_taxo( $_POST['wh_nom_taxo'][0] );
+          $taxo->setWh_nom_taxo_menu( $_POST['wh_nom_taxo_menu'][0] );
+          $taxo->setWh_nom_taxo_recherche( $_POST['wh_nom_taxo_recherche'][0] );
+          $taxo->setWh_noms_taxo( $_POST['wh_noms_taxo'][0] );
 
 
           update_option( $taxo->getId_post(), $taxosObje );
@@ -84,6 +84,9 @@ if ( isset( $_GET['action'] ) ) {
     $wh_nom_taxo_recherche = $_POST['wh_nom_taxo_recherche'][ $i ];
     $wh_nom_taxo_menu      = $_POST['wh_nom_taxo_menu'][ $i ];
     $taxo                  = new Taxonomie( $wh_nom_taxo, $wh_noms_taxo, $wh_nom_taxo_recherche, $wh_nom_taxo_menu, sanitize_title( $wh_noms_taxo ), $postId );
+    // Ajouter le filtre
+    $taxo->add_filter_field_type(trim($_POST['wh_filter_type'][$i]));
+
     $taxos->setTabTaxonomie( $taxo );
   }
   update_option( $postId, $taxos );
