@@ -15,9 +15,9 @@ class Wh_shortcode {
         
     }
     
-    public function wh_short() {
+    public function wh_short($atts, $content) {
         
-        print_r(get_post_types());
+        include plugin_dir_path(__FILE__) . 'contenu_page.php';
         
     }
 

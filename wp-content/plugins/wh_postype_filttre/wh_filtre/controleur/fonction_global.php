@@ -42,3 +42,15 @@ function wh_post_short_code(){
     return 'wh_post_short';
     
 }
+
+
+// fonction de recuperation des poste
+
+function wh_get_posts($postetype, $tax_query = '') {
+
+    return get_posts(array(
+        'post_type' => $postetype,
+        'numberposts' => -1,
+        'tax_query' => $tax_query,
+    ));
+}

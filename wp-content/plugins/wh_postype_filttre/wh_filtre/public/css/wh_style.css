@@ -1,0 +1,48 @@
+
+.page-one-column .panel-content .wrap {
+    max-width: 100% !important ;
+}
+
+
+.wh_containers{
+    background-color: red ;
+    display: flex;
+}
+.wh_filtres{
+    width: 20% ;
+    background-color: blanchedalmond;
+
+}
+.wh_postes_content{
+    display: flex;
+    width: 60% ;
+    background-color : salmon;
+}
+.wh_poste{
+    width: 160px ;
+    height: 80px ;
+    margin-left: 20px ;
+    margin-bottom: 20px ;
+    background-color: khaki;
+}
+.wh_postes.active{
+    display: flex;
+    flex-wrap: wrap ;
+    background-color: #006799 ;
+}
+.wh_postes{
+   
+    background-color: #cccccc ;
+}
+.wh_carte{
+    width: 20% ;
+    background-color: darkseagreen;
+}
+
+.wh_taxo_display{
+    display: flex;
+}
+
+.wh_checkbox{
+    margin-left: 20px ;
+}

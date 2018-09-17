@@ -1,5 +1,5 @@
 <?php
-
+// recuperation des slug de poste type
 $tab_slug_post_type = tab_slug_post_type();
 
 if ($tab_slug_post_type) {
