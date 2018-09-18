@@ -2,8 +2,8 @@
 
 <div class="wh_containers" >
     <p hidden class="postetype_slug"><?= $postetype ?></p>
-    <div class="wh_filtres" > 
-        <?php if ($tabFiltre_taxo) : $indiceCheck = 0; ?>
+    <div id="wh_filtres" > 
+        <?php if ($tabFiltre_taxo) : $indiceCheck = 0; $indiceSelects =0 ;?>
             <?php foreach ($tabFiltre_taxo as $filtre_taxo_objet): ?>
                 <div class="wh_filtre"> 
                     <div class="taxo_title" >
@@ -19,13 +19,8 @@
                             
                             break;
                         case 'select':
-
+                            $indiceSelects++ ;
                             include plugin_dir_path(__FILE__) . 'selection.php';
-
-                            break;
-                        case 'champ_recherche':
-
-                            include plugin_dir_path(__FILE__) . 'champ_recherche.php';
 
                             break;
                         
@@ -34,6 +29,7 @@
                 </div> 
             <?php endforeach; ?>
         <p hidden="" id="indiceCheck"><?= $indiceCheck ; ?></p>
+        <p hidden="" id="indiceSelects"><?= $indiceSelects ; ?></p>
         <?php endif; ?>   
 
     </div>
