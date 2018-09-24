@@ -15,7 +15,7 @@
 }
 .wh_postes_content{
     display: flex;
-    width: 60% ;
+    width: 50% ;
     background-color : salmon;
 }
 .wh_poste{
@@ -34,9 +34,10 @@
    
     background-color: #cccccc ;
 }
-.wh_carte{
-    width: 20% ;
-    background-color: darkseagreen;
+#wh_map{
+    width: 30% ;
+    height: 60vh;
+    background: background ;
 }
 
 .wh_taxo_display{
@@ -45,4 +46,17 @@
 
 .wh_checkbox{
     margin-left: 20px ;
+}
+
+
+.marker{
+    background-color: bisque ;
+    border-radius: 2px ;
+}
+
+.marker.is-active {
+    
+    background-color: #008ec2 ;
+    color: white ;
+    
 }

@@ -2,6 +2,7 @@
 
 <div class="wh_containers" >
     <p hidden class="postetype_slug"><?= $postetype ?></p>
+    <p hidden id="wh_apiGoogle"><?= get_option(WH_GOOGLE) ?></p>
     <div id="wh_filtres" > 
         <?php if ($tabFiltre_taxo) : $indiceCheck = 0; $indiceSelects =0 ;?>
             <?php foreach ($tabFiltre_taxo as $filtre_taxo_objet): ?>
@@ -39,5 +40,5 @@
         </div>
     </div>
 
-    <div class="wh_carte" > carte </div>
+    <div id="wh_map" > carte </div>
 </div>

@@ -1,9 +1,14 @@
 <?php
 
+include plugin_dir_path(__FILE__) . 'wh_geo_query.php';
+/*
+ * nom du option du api google
+ */
+define('WH_GOOGLE', 'wh_api_goole');
+
 /*
  * recuperer les slug de tous les post_type
  */
-
 
 function tab_slug_post_type() {
 
@@ -19,38 +24,48 @@ function tab_slug_post_type() {
             }
         }
     }
-    return $tab_slug_post_type ;
+    return $tab_slug_post_type;
 }
-
 
 /*
  * nom shorte code
  */
 
-function wh_short_code(){
-    
+function wh_short_code() {
+
     return 'wh_short';
-    
 }
 
 /*
  * nom post short_code
  */
 
-function wh_post_short_code(){
-    
-    return 'wh_post_short';
-    
-}
+function wh_post_short_code() {
 
+    return 'wh_post_short';
+}
 
 // fonction de recuperation des poste
 
-function wh_get_posts($postetype, $tax_query = '') {
+function wh_get_posts($postetype, $tax_query = '', $nbrPage = '', $lat = '', $lng = '', $distance = '') {
 
-    return get_posts(array(
-        'post_type' => $postetype,
-        'numberposts' => -1,
+    if (!$distance) {
+        $distance = 20;
+    }
+    if (!$nbrPage) {
+        $nbrPage = 15;
+    }
+
+    $locations = new WP_Query_Geo([
+        'post_status' => 'publish',
+        'post_type' => $postetype, // cpt with locations stored
+        'posts_per_page' => -1,
         'tax_query' => $tax_query,
-    ));
+        'posts_per_page' => $nbrPage, // nbre de page
+        'lat' => $lat, // pass in latitude 
+        'lng' => $lng, // pass in longitude
+        'distance' => $distance, // distance to find properties in
+    ]);
+
+    return $locations->posts;
 }

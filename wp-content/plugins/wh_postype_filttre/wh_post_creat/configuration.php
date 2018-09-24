@@ -4,6 +4,17 @@
  * nom du option du post type
  */
 define( 'POST_OPTION', 'wh_post_types' );
+/*
+ * validation de de ajout de champ adress
+ */
+define( 'AJOUT_META', 1 );
+/*
+ * nom du option meta
+ * @param $idPost est id du la class du poste
+ */
+function wh_get_nom_meta($idPost){
+    return 'wh_meta'.$idPost;
+}
 
 /*
  * posteType

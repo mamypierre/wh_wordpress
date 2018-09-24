@@ -1,5 +1,4 @@
 <?php
-
 add_action('init', 'wh_post_creats', 0);
 
 function wh_post_creats() {
@@ -113,30 +112,53 @@ function wh_add_taxonomies($Taxonomie, $id_post) {
     );
     register_taxonomy($Taxonomie->getId_taxo(), $id_post, $args);
 }
-
+/*
+ * ajout de metabox
+ */
 add_action('add_meta_boxes', 'init_metabox');
 
 function init_metabox() {
-    
+
     $posts = get_option(POST_OPTION);
     if ($posts) {
         $posts = $posts->getPosteTyps();
         foreach ($posts as $postType) {
-             add_meta_box('url_crea', 'URL du site', 'url_crea',$postType->getId());
+            if (get_option(wh_get_nom_meta($postType->getId())) == AJOUT_META) {
+                add_meta_box('url_crea', 'ville', 'ville', $postType->getId());
+            }
         }
     }
-   
 }
 
-function url_crea($post) {
-    $url = get_post_meta($post->ID, '_url_crea', true);
-    echo '<label for="url_meta">URL du site cré :</label>';
-    echo '<input id="url_meta" type="url" name="url_site" value="' . $url . '" />';
+function ville($post) {
+    $ville = get_post_meta($post->ID, '_ville', true);
+    $adresse = get_post_meta($post->ID, '_adresse', true);
+    $wh_lng = get_post_meta($post->ID, '_wh_lng', true);
+    $wh_lat = get_post_meta($post->ID, '_wh_lat', true);
+    ?>
+    <label for="wh_ville" >nom</label>
+    <input id="wh_ville" type="text" name="ville" value="<?php echo $ville; ?>" />
+    <label for="wh_adresse" >adress</label>
+    <input id="wh_adresse" type="text" name="adresse" value="<?php echo $adresse; ?>" />
+    <input id="wh_lng" type="text" name="wh_lng" placeholder="lng" value="<?php echo $wh_lng; ?>" />
+    <input id="wh_lat" type="text" name="wh_lat" placeholder="lat" value="<?php echo $wh_lat; ?>" />
+    <?php
 }
 
 add_action('save_post', 'save_metabox');
 
 function save_metabox($post_id) {
-    if (isset($_POST['url_site']))
-        update_post_meta($post_id, '_url_crea', esc_url($_POST['url_site']));
+
+    if (isset($_POST['ville'])) {
+        update_post_meta($post_id, '_ville', sanitize_text_field($_POST['ville']));
+    }
+    if (isset($_POST['adresse'])) {
+        update_post_meta($post_id, '_adresse', sanitize_text_field($_POST['adresse']));
+    }
+    if (isset($_POST['wh_lng'])) {
+        update_post_meta($post_id, '_wh_lng', sanitize_text_field($_POST['wh_lng']));
+    }
+    if (isset($_POST['wh_lat'])) {
+        update_post_meta($post_id, '_wh_lat', sanitize_text_field($_POST['wh_lat']));
+    }
 }

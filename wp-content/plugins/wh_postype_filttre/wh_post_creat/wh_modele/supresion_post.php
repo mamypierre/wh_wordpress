@@ -9,6 +9,8 @@ if ( getPostypes() ) {
     $keys = isPostype_keys( $id_post_comf, $postTypes ) - 1;
 
     $id_post = $postTypes[ $keys ]->getId();
+    //supretion de meta lier 
+    delete_option( wh_get_nom_meta($id_post) );
     //supression des taxo lier
     delete_option( $id_post );
     //supression de postType

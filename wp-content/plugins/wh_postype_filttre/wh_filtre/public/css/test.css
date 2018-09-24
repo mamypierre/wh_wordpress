@@ -10,22 +10,9 @@
     display: flex;
 }
 
-.wh_map{
-    width: 50% ;
-    height: 50vh ;
-}
 
-.marker{
-    background-color: bisque ;
-    border-radius: 2px ;
-}
 
-.marker.is-active {
-    
-    background-color: #008ec2 ;
-    color: white ;
-    
-}
+
 
 
 .page-one-column .panel-content .wrap {

@@ -26,7 +26,6 @@ if (isset($atts) && !empty($atts)) {
         // recuperation des poste
         $posts = wh_get_posts($postetype);
     }
-
     // recuperation des information du filtre
     if ($tab_fitre) {
 
@@ -45,5 +44,3 @@ if (isset($atts) && !empty($atts)) {
 
 // apell du template
 include plugin_dir_path(__FILE__) . '../view/postesTemplate.php';
-
- 

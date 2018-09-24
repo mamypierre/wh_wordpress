@@ -56,5 +56,9 @@
     <input type="hidden" name="postype_Slug" value="<?= $postType->getId(); ?>">
 
   <?php } ?>
+    
+        <div id="ajout_meta" >
+            <input type="checkbox" id="wh_ajout" name="ajout_meta" ><label for="wh_ajout" > ajouter adress ? </label>
+        </div>
   <div class="wh_button_valid"> <?php submit_button( 'valider' ); ?> </div>
 </form>
