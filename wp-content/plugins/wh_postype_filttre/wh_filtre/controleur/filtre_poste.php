@@ -3,7 +3,7 @@
 if (!isset($posts)) {
 
     if (isset($_POST['slugPost']) && $_POST['slugPost'] ) {
-        
+       
         // initialisation des variable
         $postetype = $_POST['slugPost'];
         $tax_query = '';
@@ -13,7 +13,7 @@ if (!isset($posts)) {
         $nbrPage = '';
         
         if (isset($_POST['tabTaxos']) && $_POST['tabTaxos']) {
-
+            
             $tax_query = $_POST['tabTaxos'];
 
             $relation = array('relation' => 'AND');

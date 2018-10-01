@@ -3,21 +3,12 @@
     max-width: 100% !important ;
 }
 
-
+/*
 .wh_containers{
     background-color: red ;
     display: flex;
 }
-#wh_filtres{
-    width: 20% ;
-    background-color: blanchedalmond;
 
-}
-.wh_postes_content{
-    display: flex;
-    width: 50% ;
-    background-color : salmon;
-}
 .wh_poste{
     width: 160px ;
     height: 80px ;
@@ -34,11 +25,7 @@
    
     background-color: #cccccc ;
 }
-#wh_map{
-    width: 30% ;
-    height: 60vh;
-    background: background ;
-}
+
 
 .wh_taxo_display{
     display: flex;
@@ -48,6 +35,22 @@
     margin-left: 20px ;
 }
 
+*/
+
+.wh_postes_content{
+    margin-top: 10px !important;
+}
+
+#wh_filtres{
+    margin-top: 10px ;
+
+}
+
+img.wh_image{
+    height: 231px !important; 
+    width: 277px !important;
+
+}
 
 .marker{
     background-color: bisque ;
@@ -55,8 +58,15 @@
 }
 
 .marker.is-active {
-    
+
     background-color: #008ec2 ;
     color: white ;
-    
+
+} 
+.wh_sticky {
+    position:fixed !important;
+    top:0px !important ;
+    height: 100vh !important;
+    width: 32.2vw !important;
 }
+

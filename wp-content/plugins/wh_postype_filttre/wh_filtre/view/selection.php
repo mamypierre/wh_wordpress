@@ -1,6 +1,6 @@
-<div class="wh_taxo_Selects <?= $indiceSelects ?>">
-    <p hidden class="wh_taxonomySelects"><?= $filtre_taxo_objet->getTab_taxos()[0]->taxonomy; ?></p>
-    <select id="wh_Selects" name="terms" multiple >
+<div class="wh_taxo_Selects" wh_taxonomySelects="<?= $filtre_taxo_objet->getSlug_taxo(); ?>" >
+
+    <select class="wh_Selects" name="terms" multiple  style="width:100% " >
         <?php foreach ($filtre_taxo_objet->getTab_taxos() as $taxos) : ?>
 
             <option value="<?= $taxos->slug ?>" > <?= $taxos->name ?> </option>

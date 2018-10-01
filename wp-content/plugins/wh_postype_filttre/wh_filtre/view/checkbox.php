@@ -1,11 +1,12 @@
 
 
-<div class="wh_taxo_display <?= $indiceCheck ?> ">
-    <p hidden class="wh_taxonomyCheck"><?= $filtre_taxo_objet->getTab_taxos()[0]->taxonomy ; ?></p>
+<div  class="wh_taxo_display columns is-multiline" wh_taxonomy="<?= $filtre_taxo_objet->getSlug_taxo();?>" >
     <?php foreach ($filtre_taxo_objet->getTab_taxos() as $taxos) : ?>
 
-        <div class="wh_checkbox" >  
-            <input type="checkbox" name="terms" value="<?= $taxos->slug ?>" class="wh_check" > <p> <?= $taxos->name ?> </p>
+        <div class="wh_checkbox column" >  
+            <label class="checkbox">
+               <input type="checkbox" name="terms" value="<?= $taxos->slug ?>" class="wh_check" ><?= $taxos->name ?>
+            </label>
         </div>
 
     <?php endforeach; ?>

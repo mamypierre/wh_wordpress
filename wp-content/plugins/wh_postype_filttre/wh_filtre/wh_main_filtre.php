@@ -49,13 +49,10 @@ class Main_filtre {
     function wh_script() {
 
         wp_enqueue_style('wh_style', get_template_directory_uri() . '/../../plugins/wh_postype_filttre/wh_filtre/public/css/wh_style.css');
-        wp_enqueue_style('test', get_template_directory_uri() . '/../../plugins/wh_postype_filttre/wh_filtre/public/css/test.css');
         wp_enqueue_style('chosen', get_template_directory_uri() . '/../../plugins/wh_postype_filttre/wh_filtre/public/css/chosen.css');
-
-
-
-        // wp_register_style('custom', "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css");
-        // wp_enqueue_style('custom');
+        // integration de bulma
+         wp_register_style('bulma', "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css");
+         wp_enqueue_style('bulma');
     }
 
 
