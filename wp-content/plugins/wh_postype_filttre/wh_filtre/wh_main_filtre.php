@@ -29,6 +29,9 @@ class Main_filtre {
          */
         add_action('wp_ajax_filtre_post', array($this, 'filtre_post'));
         add_action('wp_ajax_nopriv_filtre_post', array($this, 'filtre_post'));
+        //api google
+        add_action('wp_ajax_front_api_google', array($this, 'front_api_google'));
+        add_action('wp_ajax_nopriv_front_api_google', array($this, 'front_api_google'));
     }
 
     /*
@@ -63,6 +66,12 @@ class Main_filtre {
     function filtre_post() {
 
         include plugin_dir_path(__FILE__) . 'controleur/filtre_poste.php';
+
+        die();
+    }
+    function front_api_google() {
+
+        echo get_option(WH_GOOGLE);
 
         die();
     }

@@ -23,6 +23,9 @@ class Wh_main_post {
 
         // ajout de google place
         add_action('edit_form_top', array($this, 'wh_place'));
+        //api google
+        add_action('wp_ajax_back_api_google', array($this, 'back_api_google'));
+        add_action('wp_ajax_nopriv_back_api_google', array($this, 'back_api_google'));
     }
 
     function wh_post_adnim() {
@@ -35,7 +38,16 @@ class Wh_main_post {
      */
     function wh_place() {
         
-        wp_enqueue_script ('wh_place', plugin_dir_url( __FILE__ ).'public/javascript/wh_place.js');
+        wp_enqueue_script ('wh_place', plugin_dir_url( __FILE__ ).'public/javascript/wh_place.js', array('jquery'), '1.4', true);
+        // pass Ajax Url to script.js
+        wp_localize_script('wh_place', 'wh_ajax_place', admin_url('admin-ajax.php'));
+    }
+    
+    function back_api_google() {
+
+        echo get_option(WH_GOOGLE);
+
+        die();
     }
 
 }

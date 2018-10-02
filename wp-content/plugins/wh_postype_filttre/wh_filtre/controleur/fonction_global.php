@@ -1,10 +1,7 @@
 <?php
 
 include plugin_dir_path(__FILE__) . 'wh_geo_query.php';
-/*
- * nom du option du api google
- */
-define('WH_GOOGLE', 'wh_api_goole');
+
 
 /*
  * recuperer les slug de tous les post_type
@@ -61,6 +58,19 @@ function wh_get_posts($postetype, $tax_query = '', $nbrPage = '', $lat = '', $ln
         'post_type' => $postetype, // cpt with locations stored
         'posts_per_page' => -1,
         'tax_query' => $tax_query,
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => '_wh_prix',
+                'value' => 1,
+                'compare' => '>'
+            ),
+            array(
+                'key' => '_wh_prix',
+                'value' => 500,
+                'compare' => '<'
+            )
+        ),
         'posts_per_page' => $nbrPage, // nbre de page
         'lat' => $lat, // pass in latitude 
         'lng' => $lng, // pass in longitude
@@ -69,3 +79,4 @@ function wh_get_posts($postetype, $tax_query = '', $nbrPage = '', $lat = '', $ln
 
     return $locations->posts;
 }
+

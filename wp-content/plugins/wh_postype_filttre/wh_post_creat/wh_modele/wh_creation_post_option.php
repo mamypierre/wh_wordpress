@@ -135,6 +135,7 @@ function ville($post) {
     $adresse = get_post_meta($post->ID, '_adresse', true);
     $wh_lng = get_post_meta($post->ID, '_wh_lng', true);
     $wh_lat = get_post_meta($post->ID, '_wh_lat', true);
+    $prix = get_post_meta($post->ID, '_wh_prix', true);
     ?>
     <label for="wh_ville" >nom</label>
     <input id="wh_ville" type="text" name="ville" value="<?php echo $ville; ?>" />
@@ -142,6 +143,9 @@ function ville($post) {
     <input id="wh_adresse" type="text" name="adresse" value="<?php echo $adresse; ?>" />
     <input id="wh_lng" type="text" name="wh_lng" placeholder="lng" value="<?php echo $wh_lng; ?>" />
     <input id="wh_lat" type="text" name="wh_lat" placeholder="lat" value="<?php echo $wh_lat; ?>" />
+    <br>
+    <label for="wh_prix" >prix</label>
+    <input id="wh_prix" type="text" name="wh_prix" value="<?php echo $prix; ?>" />
     <?php
 }
 
@@ -160,5 +164,8 @@ function save_metabox($post_id) {
     }
     if (isset($_POST['wh_lat'])) {
         update_post_meta($post_id, '_wh_lat', sanitize_text_field($_POST['wh_lat']));
+    }
+    if (isset($_POST['wh_prix'])) {
+        update_post_meta($post_id, '_wh_prix', sanitize_text_field($_POST['wh_prix']));
     }
 }

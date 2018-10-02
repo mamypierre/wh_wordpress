@@ -13,7 +13,7 @@
                      <?php endif; ?>
                      >  
 
-                    <?= $post->post_content ?> 
+                    <?= $post->post_title ?> 
                     <?php if (get_post_meta($post->ID, '_ville', true)): ?>
 
                         <p><?= get_post_meta($post->ID, '_ville', true) ?></p>

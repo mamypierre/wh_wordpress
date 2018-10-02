@@ -41,6 +41,20 @@ if (isset($atts) && !empty($atts)) {
         }
     }
 }
+// recuperation du content si existe
+if ($content) {
+
+    preg_match_all('#\[[^\]]*\]#', $content, $post_fields);
+
+
+    foreach ($post_fields[0] as $post_field) {
+        $post_field = str_replace('[', '', $post_field);
+        $post_field = str_replace(']', '', $post_field);
+        $post_field = explode('=', $post_field);
+
+        print_r($post_field);
+    }
+}
 
 // apell du template
 include plugin_dir_path(__FILE__) . '../view/postesTemplate.php';

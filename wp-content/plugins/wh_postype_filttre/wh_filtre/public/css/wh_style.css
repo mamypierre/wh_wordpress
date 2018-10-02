@@ -69,4 +69,15 @@ img.wh_image{
     height: 100vh !important;
     width: 32.2vw !important;
 }
-
+.checkbox{
+    font-size: 0.8em;
+}
+.wh_check{
+    
+    margin-right: 5px ;
+    
+}
+.wh_titre {
+  margin-top: 20px ;
+  margin-left: 10px ;
+}

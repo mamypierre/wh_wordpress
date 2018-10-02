@@ -1,6 +1,26 @@
 
 let $map = document.querySelector('#wh_map');
-let api_google = document.querySelector('#wh_apiGoogle').innerHTML;
+
+let teest = '';
+// chargement  google map
+const initMap_whith_api = async function () {
+    // chargement d'api google
+    let api_google = '';
+    await   jQuery.post(wh_ajaxurl,
+            {
+                'action': 'front_api_google'
+            },
+            function (response) {
+
+                api_google = response;
+
+            }
+    );
+
+    initMap(api_google);
+
+}
+
 class GoogleMaps {
     /*
      * charge la carte
@@ -94,7 +114,7 @@ class GoogleMaps {
  * @returns {undefined}
  */
 
-const initMap = async function () {
+const initMap = async function (api_google = '') {
 
     let map = new GoogleMaps();
 
@@ -159,7 +179,7 @@ function isMap() {
  */
 if ($map !== null && isMap()) {
 
-    initMap();
+    initMap_whith_api();
 
 } else {// supresion de l'emplacement de la map
     // supression de l'emplacement de du map
@@ -173,7 +193,7 @@ if ($map !== null && isMap()) {
 
 
 function rechargeMaps() {
-    initMap();
+    initMap_whith_api();
 }
 
 
@@ -198,83 +218,92 @@ let wh_lng = null;
 let ajoutSlid = document.querySelector('#wh_filtres');
 
 // generation du slider
-function creation_slider(){
-  // creation de  slidecontainer
-  let div_slide = document.createElement("DIV");
-  let attr_class = document.createAttribute("class");
-  attr_class.value = "wh_silde_content";
-  div_slide.setAttributeNode(attr_class);
-  // creation de slide
-  let input_slide = document.createElement("INPUT");
+function creation_slider() {
+    // creation de  slidecontainer
+    let div_slide = document.createElement("DIV");
+    let attr_class = document.createAttribute("class");
+    attr_class.value = "wh_silde_content";
+    div_slide.setAttributeNode(attr_class);
+    // creation de slide
+    let input_slide = document.createElement("INPUT");
 
-  let attr_type = document.createAttribute("type");
-  attr_type.value = "range";
+    let attr_type = document.createAttribute("type");
+    attr_type.value = "range";
 
-  let attr_min = document.createAttribute("min");
-  attr_min.value = "1";
+    let attr_min = document.createAttribute("min");
+    attr_min.value = "1";
 
-  let attr_max = document.createAttribute("max");
-  attr_max.value = "140";
+    let attr_max = document.createAttribute("max");
+    attr_max.value = "140";
 
-  let attr_value = document.createAttribute("value");
-  attr_value.value = "20";
+    let attr_value = document.createAttribute("value");
+    attr_value.value = "20";
 
-  let attr_class_slide = document.createAttribute("class");
-  attr_class_slide.value = "wh_silder";
+    let attr_class_slide = document.createAttribute("class");
+    attr_class_slide.value = "wh_silder";
 
-  let attr_id_slide = document.createAttribute("id");
-  attr_id_slide.value = "wh_Range";
+    let attr_id_slide = document.createAttribute("id");
+    attr_id_slide.value = "wh_Range";
 
-  // creation de value affichage de span
-  let output_slide_id = document.createAttribute("id");
-  output_slide_id.value = "wh_distance";
+    // creation de value affichage de span
+    let output_slide_id = document.createAttribute("id");
+    output_slide_id.value = "wh_distance";
 
-  let output_slide_span = document.createElement("SPAN");
-  output_slide_span.setAttributeNode(output_slide_id);
-  output_slide_span.innerHTML = attr_value.value + 'km';
+    let output_slide_span = document.createElement("SPAN");
+    output_slide_span.setAttributeNode(output_slide_id);
+    output_slide_span.innerHTML = attr_value.value + 'km';
 
-  // ajout de Rayon
-  let output_slide_rayon = document.createElement("P");
-  output_slide_rayon.innerHTML = 'Rayon:';
-  output_slide_rayon.appendChild(output_slide_span);
+    // ajout de Rayon
+    let output_slide_rayon = document.createElement("P");
+    output_slide_rayon.innerHTML = 'Rayon:';
+    output_slide_rayon.appendChild(output_slide_span);
 
 
-  // ajout des attribu
-  input_slide.setAttributeNode(attr_type);
-  input_slide.setAttributeNode(attr_min);
-  input_slide.setAttributeNode(attr_max);
-  input_slide.setAttributeNode(attr_value);
-  input_slide.setAttributeNode(attr_class_slide);
-  input_slide.setAttributeNode(attr_id_slide);
-  // ajout dan contener
-  div_slide.appendChild(input_slide);
-  div_slide.appendChild(output_slide_rayon);
-  // ajout dans le templete
+    // ajout des attribu
+    input_slide.setAttributeNode(attr_type);
+    input_slide.setAttributeNode(attr_min);
+    input_slide.setAttributeNode(attr_max);
+    input_slide.setAttributeNode(attr_value);
+    input_slide.setAttributeNode(attr_class_slide);
+    input_slide.setAttributeNode(attr_id_slide);
+    // ajout dan contener
+    div_slide.appendChild(input_slide);
+    div_slide.appendChild(output_slide_rayon);
+    // ajout dans le templete
 
-  ajoutSlid.appendChild(div_slide);
+    ajoutSlid.appendChild(div_slide);
 }
-
+// option geolocalisation
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+//erreur geoloc
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
 // recuparation de la position
 function maPosition(position) {
 
-  if(isMap()){
-    wh_lat = position.coords.latitude ;
-    wh_lng = position.coords.longitude ;
-    creation_slider() ;
-    // mise a jour du valeur du slide
-    jQuery(function($){
-      $('#wh_Range').change(function () {
-          $('#wh_distance').html('');
-          $('#wh_distance').html( $(this).attr('value') + ' km');
-      }) ;
-    });
-  }
+    if (isMap()) {
+
+        wh_lat = position.coords.latitude;
+        wh_lng = position.coords.longitude;
+        creation_slider();
+        // mise a jour du valeur du slide
+        jQuery(function ($) {
+            $('#wh_Range').change(function () {
+                $('#wh_distance').html('');
+                $('#wh_distance').html($(this).attr('value') + ' km');
+            });
+        });
+    }
 
 }
 // geolocalisation de position courent
 if (navigator.geolocation) {
-
-    navigator.geolocation.getCurrentPosition(maPosition);
+    navigator.geolocation.getCurrentPosition(maPosition, error, options);
 }
 
 
@@ -282,18 +311,19 @@ if (navigator.geolocation) {
 jQuery(function ($) {
 
     // posistion .sticky
+    if ($("#wh_map_sticky").length) {
+        var yourNavigation = $("#wh_map_sticky");
+        let stickyDiv = "wh_sticky";
+        let yourHeader = yourNavigation.offset().top;
+        $(window).scroll(function () {
+            if ($(this).scrollTop() >= yourHeader) {
 
-    var yourNavigation = $("#wh_map_sticky");
-    let stickyDiv = "wh_sticky";
-    let yourHeader = yourNavigation.offset().top;
-    $(window).scroll(function () {
-        if ($(this).scrollTop() >= yourHeader) {
-
-            yourNavigation.addClass(stickyDiv);
-        } else {
-            yourNavigation.removeClass(stickyDiv);
-        }
-    });
+                yourNavigation.addClass(stickyDiv);
+            } else {
+                yourNavigation.removeClass(stickyDiv);
+            }
+        });
+    }
 
     // filtre
     let slugpostype = $('.postetype_slug').html();
@@ -417,9 +447,6 @@ jQuery(function ($) {
             } else if (distance !== null) {
 
                 distance = $("#wh_Range").attr('value');
-                // mise a jour de distance display
-                // $('#wh_distance').html('');
-                // $('#wh_distance').html(distance + ' km');
 
                 // requete ajax
                 requetAjax(slugpostype, tabTaxos = '', wh_lat, wh_lng, distance);

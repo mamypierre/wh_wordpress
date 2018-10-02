@@ -5,14 +5,13 @@
 
             <div class="wh_containers columns is-multiline is-gapless " >
 
-                <div class="column is-12 has-background-info" style="height: 60px;" >
+                <div class="column is-12 has-background-white-ter" style="height: 60px;" >
                     <div class="title is-6 ">
-                        <p class="wh_titre ">titre</p>
+                        <p class="wh_titre">titre</p>
                     </div>
                 </div>
 
                 <p hidden class="postetype_slug"><?= $postetype ?></p>
-                <p hidden id="wh_apiGoogle"><?= get_option(WH_GOOGLE) ?></p>
 
                 <div id="wh_filtres" class="column" > 
                     <div class="columns is-multiline" >
@@ -23,7 +22,7 @@
 
                                 <div class="wh_filtre column is-12"> 
                                     <div class="has-background-white">
-                                        <div class="taxo_title title is-6 has-text-centered" >
+                                        <div class="taxo_title title is-6">
                                             <h5>
                                                 <?= $filtre_taxo_objet->getSlug_taxo() ?>
                                             </h5>

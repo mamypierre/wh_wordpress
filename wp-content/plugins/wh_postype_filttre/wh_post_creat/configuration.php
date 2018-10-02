@@ -1,6 +1,11 @@
 <?php
 
 /*
+ * nom du option du api google
+ */
+define('WH_GOOGLE', 'wh_api_goole');
+
+/*
  * nom du option du post type
  */
 define( 'POST_OPTION', 'wh_post_types' );
