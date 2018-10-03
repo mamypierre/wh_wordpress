@@ -40,11 +40,13 @@ class Main_filtre {
 
     function add_js_scripts() {
         // ajout de tout les libreri
+        wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js');
+        // ajout de tout les libreri
         wp_enqueue_script('wh_vendor', plugin_dir_url(__FILE__) . '/public/javascript/wh_vandor.js');
         // chosen
-        wp_enqueue_script('chosen', plugin_dir_url(__FILE__) . '/public/javascript/chosen.js', array('jquery'), '1.4', true);
+        wp_enqueue_script('chosen', plugin_dir_url(__FILE__) . '/public/javascript/chosen.js', array('jquery'), '1.12.4', true);
         // filtre
-        wp_enqueue_script('script', plugin_dir_url(__FILE__) . '/public/javascript/wh_ajax_filtre.js', array('jquery'), '1.4', true);
+        wp_enqueue_script('script', plugin_dir_url(__FILE__) . '/public/javascript/wh_ajax_filtre.js', array('jquery'), '1.12.4', true);
         // pass Ajax Url to script.js
         wp_localize_script('script', 'wh_ajaxurl', admin_url('admin-ajax.php'));
     }
@@ -56,6 +58,8 @@ class Main_filtre {
         // integration de bulma
          wp_register_style('bulma', "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css");
          wp_enqueue_style('bulma');
+         wp_register_style('jquery-ui', "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
+         wp_enqueue_style('jquery-ui');
     }
 
 

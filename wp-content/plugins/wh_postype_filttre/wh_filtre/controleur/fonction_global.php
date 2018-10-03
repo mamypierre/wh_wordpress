@@ -44,7 +44,7 @@ function wh_post_short_code() {
 
 // fonction de recuperation des poste
 
-function wh_get_posts($postetype, $tax_query = '', $nbrPage = '', $lat = '', $lng = '', $distance = '') {
+function wh_get_posts($postetype, $tax_query = '', $nbrPage = '', $lat = '', $lng = '', $distance = '', $tabSlide2='') {
 
     if (!$distance) {
         $distance = 20;
@@ -57,20 +57,8 @@ function wh_get_posts($postetype, $tax_query = '', $nbrPage = '', $lat = '', $ln
         'post_status' => 'publish',
         'post_type' => $postetype, // cpt with locations stored
         'posts_per_page' => -1,
-        'tax_query' => $tax_query,
-        'meta_query' => array(
-            'relation' => 'AND',
-            array(
-                'key' => '_wh_prix',
-                'value' => 1,
-                'compare' => '>'
-            ),
-            array(
-                'key' => '_wh_prix',
-                'value' => 500,
-                'compare' => '<'
-            )
-        ),
+        'tax_query' => $tax_query, 
+        'meta_query' => $tabSlide2,// filtrage par meta donner
         'posts_per_page' => $nbrPage, // nbre de page
         'lat' => $lat, // pass in latitude 
         'lng' => $lng, // pass in longitude

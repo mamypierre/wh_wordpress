@@ -17,6 +17,7 @@
                     <?php if (get_post_meta($post->ID, '_ville', true)): ?>
 
                         <p><?= get_post_meta($post->ID, '_ville', true) ?></p>
+                        <p> prix : <?= get_post_meta($post->ID, '_wh_prix', true) ?></p>
 
                     <?php endif; ?>
 

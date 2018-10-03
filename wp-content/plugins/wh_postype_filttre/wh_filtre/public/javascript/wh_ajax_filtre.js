@@ -198,7 +198,18 @@ function rechargeMaps() {
 
 
 
-// creation ajax et filtre
+// creation class double slide
+
+class wh_slides2 {
+
+    constructor() {
+        this.key;
+        this.value;
+        this.compare;
+    }
+
+}
+//  creation ajax et filtre
 
 class Taxo {
 
@@ -329,7 +340,7 @@ jQuery(function ($) {
     let slugpostype = $('.postetype_slug').html();
     let distance = $('#wh_Range').attr('value');
 
-    function requetAjax(slugPost, tabTaxos = '', lnt = '', lng = '', distance = '') {
+    function requetAjax(slugPost, tabTaxos = '', lnt = '', lng = '', distance = '', tabSlide2 = '') {
 
 
         $.post(wh_ajaxurl,
@@ -339,7 +350,8 @@ jQuery(function ($) {
                     'tabTaxos': tabTaxos,
                     'lnt': lnt,
                     'lng': lng,
-                    'distance': distance
+                    'distance': distance,
+                    'tabSlide2': tabSlide2
                 },
                 function (response) {
 
@@ -366,9 +378,11 @@ jQuery(function ($) {
 
 
     let  filtre = function () {
+
         //initiation des tableau de taxonomie
         let tabTaxos = [];
-
+        // initialisation des tableau du double slide
+        let tabSlide2 = [];
         //filtre a partir de checkbox
         if ($('.wh_taxo_display input[type=checkbox]')) {
 
@@ -426,13 +440,56 @@ jQuery(function ($) {
                 }
             });
 
+        }
+        // recuperation des information de double slide
+        if ($('.wh_filtre_range').length) {
 
+            $('.wh_filtre_range').each(function () {
+                // recuperation d u keys meta_query
+                let slug = $(this).attr('slug');
+
+                $(this).find('.wh_value_min').each(function () {
+
+                    let slideMim = new wh_slides2();
+
+                    slideMim.key = slug;
+                    slideMim.value = $(this).attr('value');
+                    slideMim.compare = '>';
+                    tabSlide2.push(slideMim);
+                })
+                $(this).find('.wh_value_max').each(function () {
+
+                    let slideMax = new wh_slides2();
+
+                    slideMax.key = slug;
+                    slideMax.value = $(this).attr('value');
+                    slideMax.compare = '<';
+                    tabSlide2.push(slideMax);
+                })
+
+            })
 
         }
 
         if (slugpostype !== null) {
 
-            if (tabTaxos.length !== 0 && distance !== null) {
+            if (tabTaxos.length !== 0 && distance !== null && tabSlide2.length !== 0) {
+                distance = $("#wh_Range").attr('value');
+
+                // appel requete ajax
+                requetAjax(slugpostype, tabTaxos, wh_lat, wh_lng, distance, tabSlide2);
+
+            } else if (tabTaxos.length !== 0 && tabSlide2.length !== 0) {
+
+                // appel requete ajax
+                requetAjax(slugpostype, tabTaxos, lnt = '', lng = '', distance = '', tabSlide2);
+
+            } else if (distance !== null && tabSlide2.length !== 0) {
+                distance = $("#wh_Range").attr('value');
+                // appel requete ajax
+                requetAjax(slugpostype, tabTaxos = '', wh_lat, wh_lng, distance, tabSlide2);
+
+            } else if (tabTaxos.length !== 0 && distance !== null) {
 
                 distance = $("#wh_Range").attr('value');
 
@@ -451,26 +508,71 @@ jQuery(function ($) {
                 // requete ajax
                 requetAjax(slugpostype, tabTaxos = '', wh_lat, wh_lng, distance);
 
+            } else if (tabSlide2.length !== 0) {
+
+                // appel requete ajax
+                requetAjax(slugpostype, tabTaxos = '', lnt = '', lng = '', distance = '', tabSlide2);
+
             } else {
 
                 requetAjax(slugpostype);
 
             }
+
+
+
         }
 
 
+
     }
 
-
-    if ($('#wh_filtres').html()) {
-        // chargment de filtre
-        $('#wh_filtres').change(filtre);
-    }
     // mise en form
     if ($('.wh_Selects').attr('name')) {
         $('.wh_Selects').each(function () {
             $(this).chosen();
         });
+    }
+//double slider
+    if ($('.wh_filtre_range').length) {
+
+        $(".slider-range").each(function () {
+            //valeur initial
+            let wh_min = $(this).attr('min');
+            let wh_max = $(this).attr('max');
+            let wh_symbole = '$';
+            // valeur a mettre a jour 
+            let amount = $(this).parent('.wh_filtre_range').find('.amount');
+            let val_min = $(this).parent('.wh_filtre_range').find('.wh_value_min');
+            let val_max = $(this).parent('.wh_filtre_range').find('.wh_value_max');
+
+            $(this).slider({
+                range: true,
+                min: 0,
+                max: wh_max,
+                values: [wh_min, wh_max],
+                slide: function (event, ui) {
+                    amount.val(wh_symbole + ui.values[ 0 ] + " - " + wh_symbole + ui.values[ 1 ]);
+                    val_min.val(ui.values[ 0 ]);
+                    val_max.val(ui.values[ 1 ]);
+                    // recharge de filtre
+                    filtre();
+                }
+            });
+
+            amount.val(wh_symbole + $(this).slider("values", 0) +
+                    " - " + wh_symbole + $(this).slider("values", 1));
+            val_min.val($(this).slider("values", 0));
+            val_max.val($(this).slider("values", 1));
+        })
+
+    }
+
+
+
+    if ($('#wh_filtres').length) {
+        // chargment de filtre
+        $('#wh_filtres').change(filtre);
     }
 
     if (wh_lat !== null && wh_lng !== null && isMap()) {
@@ -478,5 +580,43 @@ jQuery(function ($) {
         filtre();
 
     }
+    // reinitialisation
+    $('#wh_reinit').click(function () {
+
+        //reinitialisation des checkebox
+        if ($('.wh_taxo_display input[type=checkbox]')) {
+
+            $(".wh_taxo_display").each(function () {
+
+
+                $(this).find('input').each(function () {
+
+                    if ($(this).attr("checked")) {
+
+                        $(this).prop("checked", false);
+                    }
+
+                });
+
+            });
+        }
+
+        //reinitialisation des select
+        if ($('.wh_Selects option')) {
+
+            $(".wh_taxo_Selects").each(function () {
+                $(this).find('option').each(function () {
+
+                    if ($(this).attr("selected")) {
+                        $(this).prop("selected", false);
+                    }
+
+                });
+            });
+
+        }
+        filtre();
+    })
+
 
 })
